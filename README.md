@@ -1,4 +1,4 @@
-# Physics-Guided Machine Learning for Accurate GSM Prediction  
+# 🧵 Physics-Guided Machine Learning for Accurate GSM Prediction  
 ### Single Jersey Knit Fabric | Comparative Study with Explainable AI
 
 ---
@@ -7,110 +7,239 @@
 
 This project presents a **Physics-Guided Machine Learning (PGML)** framework for accurate prediction of **GSM (Grams per Square Meter)** in Single Jersey knit fabric.
 
-The study integrates classical textile engineering theory (Pierce’s tightness factor) with modern ensemble learning and explainable AI techniques to develop a robust, interpretable, and industrially deployable GSM prediction pipeline.
+Instead of purely data-driven modeling, this work integrates textile engineering physics (Pierce’s tightness factor) with advanced ensemble machine learning models and explainable AI techniques.
+
+The result is a high-accuracy, interpretable, and industry-ready GSM prediction system.
 
 ---
 
-## 🎯 Objectives
+## 🎯 Key Objectives
 
-- Incorporate textile physics into machine learning models  
+- Integrate textile physics into ML models  
 - Benchmark 22 regression algorithms  
 - Perform systematic hyperparameter tuning  
 - Evaluate accuracy–interpretability trade-off  
-- Validate model behavior using SHAP & LIME  
-- Develop a production-ready prediction pipeline  
+- Apply SHAP & LIME for explainability  
+- Develop a reproducible ML pipeline  
 
 ---
 
-## 🏭 Industrial Motivation
+## 🏭 Industrial Impact
 
 Accurate GSM prediction enables:
 
-- Reduced fabric rejection rates  
+- Reduced fabric rejection  
 - Lower material wastage  
-- Improved process control  
-- Data-driven quality monitoring  
+- Improved production control  
+- Data-driven quality assurance  
 
-Best model achieved:
+### 🏆 Best Model Performance (Extra Trees)
 
-- **Test RMSE:** ~4.10 g/m²  
-- **Test R²:** ~0.95  
-- **Test MAPE:** <1%  
+| Metric | Value |
+|--------|-------|
+| Test RMSE | ~4.10 g/m² |
+| Test R² | ~0.95 |
+| Test MAPE | <1% |
+| CV RMSE | 2.81 ± 0.47 |
 
 ---
 
 ## 🧠 Physics-Guided Feature Engineering
 
-Instead of purely empirical modeling, we integrate textile domain knowledge using:
+We incorporate domain knowledge using Pierce’s Tightness Factor:
 
-\[
-K = \frac{\sqrt{tex}}{stitch\ length}
-\]
+K = sqrt(tex) / stitch_length
 
 Where:
 - `tex` = Yarn linear density  
-- `stitch length` = Loop geometry parameter  
-- `K` = Tightness factor (physics-derived feature)
+- `stitch_length` = Loop geometry parameter  
+- `K` = Tightness factor  
 
-SHAP analysis confirms that:
+SHAP analysis confirms:
 
-- Yarn count  
-- Tightness factor  
-- Stitch length  
+- Yarn Count  
+- Tightness Factor  
+- Stitch Length  
 
-Together contribute **>86% of total feature importance**, validating the physics-guided approach.
+Together contribute >86% of total feature importance, validating the physics-guided approach.
 
 ---
 
 ## 📊 Models Evaluated
 
-### Interpretable Models
-- Linear Regression (OLS)
-- Ridge, Lasso, ElasticNet
+### 🔹 Interpretable Models
+- Linear Regression
+- Ridge
+- Lasso
+- ElasticNet
 - Bayesian Ridge
 - Huber Regressor
-- Polynomial Ridge (Degree 2 & 3)
+- Polynomial Ridge (Deg 2 & 3)
 - Decision Tree
 - Generalized Additive Model (GAM)
 
-### Black-Box Models
+### 🔹 Ensemble / Black-Box Models
 - Random Forest
-- Extra Trees (Best Model)
+- Extra Trees (Best)
 - XGBoost
 - LightGBM
 - CatBoost
 - Gradient Boosting
 - AdaBoost
-- SVR (RBF & Polynomial)
+- SVR (RBF & Poly)
 - KNN
-- MLP (Neural Networks)
+- MLP Regressor
 
 ---
 
-## 🏆 Best Model: Extra Trees
+## 🔬 Explainable AI
 
-| Metric | Value |
-|--------|-------|
-| Test RMSE | 4.10 g/m² |
-| Test R² | 0.952 |
-| Test MAPE | 0.47% |
-| CV RMSE | 2.81 ± 0.47 |
+### ✅ SHAP
+- Global & local feature importance
+- Validates textile theory alignment
+- Identifies nonlinear interactions
 
-Extra Trees provided the best balance between predictive accuracy and stability.
-
----
-
-## 🔬 Explainability
-
-### SHAP (Global & Local)
-- Quantifies feature contributions
-- Validates alignment with textile physics
-- Highlights dominant nonlinear interactions
-
-### LIME (Instance-Level)
-- Explains individual predictions
-- Improves trust in black-box models
+### ✅ LIME
+- Instance-level prediction explanation
+- Enhances model transparency
 
 ---
 
 ## 📂 Project Structure
+
+```
+physics-guided-gsm-prediction/
+│
+├── README.md
+├── GSM_Prediction_Report.pdf
+├── dataset/
+│   └── single_jersey_data.csv
+├── src/
+│   ├── preprocessing.py
+│   ├── feature_engineering.py
+│   ├── model_training.py
+│   ├── hyperparameter_tuning.py
+│   ├── evaluation.py
+│   └── explainability.py
+├── notebooks/
+│   └── exploratory_analysis.ipynb
+├── requirements.txt
+└── LICENSE
+```
+
+---
+
+## ⚙️ Installation
+
+Clone the repository:
+
+```
+git clone https://github.com/your-username/physics-guided-gsm-prediction.git
+cd physics-guided-gsm-prediction
+```
+
+Install dependencies:
+
+```
+pip install -r requirements.txt
+```
+
+---
+
+## ▶️ Usage
+
+Train baseline models:
+
+```
+python src/model_training.py
+```
+
+Run hyperparameter optimization:
+
+```
+python src/hyperparameter_tuning.py
+```
+
+Generate SHAP explanations:
+
+```
+python src/explainability.py
+```
+
+---
+
+## 📦 Requirements
+
+```
+numpy
+pandas
+scikit-learn
+xgboost
+lightgbm
+catboost
+matplotlib
+seaborn
+shap
+lime
+scipy
+```
+
+---
+
+## 📈 Evaluation Metrics
+
+- RMSE (Primary Metric)
+- MAE
+- R² Score
+- MAPE
+- Cross-validation Stability
+
+---
+
+## 📚 Research Contributions
+
+- Large-scale benchmarking of 22 ML models  
+- Systematic hyperparameter optimization  
+- Physics-guided feature validation  
+- SHAP-based interpretability verification  
+- Construction-specific modeling (Single Jersey Knit)  
+
+---
+
+## 👨‍🎓 Author
+
+**Md. Mushfiqur Rashid Marmo**  
+Email: mushfiqur.tech@gmail.com  
+Contact: +880 1720-097317  
+
+Department of Electrical and Computer Engineering  
+North South University  
+Fall 2025  
+
+---
+
+## 📄 Citation
+
+If you use this work, please cite:
+
+Physics-Guided Machine Learning for Accurate GSM Prediction in Single Jersey Knit Fabric:  
+A Comprehensive Comparative Study with Explainable AI, 2025.
+
+---
+
+## 📜 License
+
+This project is released under the MIT License.
+
+---
+
+## 🚀 Future Work
+
+- Extend to multiple knit constructions  
+- Real-time industrial deployment  
+- Economic optimization modeling  
+- Physics-Informed Neural Networks (PINNs) integration  
+
+---
+
+⭐ If you find this project useful, consider giving it a star!
